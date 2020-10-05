@@ -1,0 +1,30 @@
+language: node_js
+
+node_js:
+- "lts/*"
+
+os:
+- linux
+- osx
+
+cache: npm
+
+branches:
+  only:
+  - master
+  - dev
+
+before_install:
+  - npm i -g npm@latest
+
+install:
+- npm install
+
+script:
+- npm run build
+- npm run style
+
+notifications:
+  email:
+    on_success: never
+    on_failure: always
