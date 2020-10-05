@@ -1,12 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import {BrowserRouter, Route, Switch} from "react-router-dom";
-import {ThemeProvider} from "styled-components";
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
 import Home from "./views/Home";
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from "./serviceWorker";
 
 const themes = {
-  mainColor: "#fff"
+  mainColor: "#fff",
 };
 
 ReactDOM.render(
@@ -14,12 +14,12 @@ ReactDOM.render(
     <BrowserRouter>
       <ThemeProvider theme={themes}>
         <Switch>
-          <Route exact path="/" component={Home}/>
+          <Route exact path="/" component={Home} />
         </Switch>
       </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
