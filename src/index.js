@@ -1,26 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { ThemeProvider } from "styled-components";
 import Header from "./components/Header";
 import Home from "./views/Home";
 import * as serviceWorker from "./serviceWorker";
 
-const themes = {
-  mainColor: "#fff",
-};
-
-document.body.style = "margin: 0; padding: 0;";
-
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ThemeProvider theme={themes}>
-        <Header />
-        <Switch>
-          <Route exact path="/" component={Home} />
-        </Switch>
-      </ThemeProvider>
+      <Header />
+      <Switch>
+        <Route exact path="/" component={Home} />
+      </Switch>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
