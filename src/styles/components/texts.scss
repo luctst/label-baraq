@@ -50,6 +50,10 @@ a {
   line-height: 32px;
 }
 
+.paragraph + .paragraph {
+  padding-top: 16px;
+}
+
 .error {
   display: block;
   margin: 30px auto;

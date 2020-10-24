@@ -58,13 +58,17 @@ const Home = () => {
             moi-même développé l’intime conviction que nous avons besoin d’un intérieur
             accueillant et chaleureux pour se sentir bien. Après un Bachelor en commerce
             international et de nombreux voyages, j’ai donc décidé de me lancer dans la
-            décoration d’intérieur afin d’allier entreprenariat et créativité. Le métier
-            de décoratrice me permet d’imaginer des lieux ergonomiques en mixant matières
-            & couleurs afin de rendre l’espace vivant. J’aime tout particulièrement l’idée
-            de faire équipe avec mes clients, de les intégrer un maximum au projet et de
-            mettre en place une communication fluide. A travers mon travail, je cherche à
-            les initier à la couleur qui est un élément indispensable au bien-être dans un
-            intérieur.
+            décoration d’intérieur afin d’allier entreprenariat et créativité.
+          </p>
+          <p className="paragraph">
+            Le métier de décoratrice me permet d’imaginer des lieux ergonomiques en mixant
+            matières & couleurs afin de rendre l’espace vivant.
+          </p>
+          <p className="paragraph">
+            J’aime tout particulièrement l’idée de faire équipe avec mes clients, de les
+            intégrer un maximum au projet et de mettre en place une communication fluide.
+            A travers mon travail, je cherche à les initier à la couleur qui est un
+            élément indispensable au bien-être dans un intérieur.
           </p>
           <div className="presentation__content__button text-center">
             <Link to="/projets" className="button">
