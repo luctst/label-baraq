@@ -1,0 +1,101 @@
+.home {
+  .hero {
+    img {
+      display: block;
+      margin: 0 auto;
+      margin-top: 40px;
+      width: 100%;
+      max-width: 931px;
+    }
+
+    &__scroll-arrow {
+      display: block;
+      margin: 0 auto;
+      text-align: center;
+      margin-top: 40px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .presentation {
+    padding: 150px 70px 110px 0;
+    display: flex;
+
+    @include on-tablet {
+      flex-direction: column;
+      padding: 150px 0 110px 0;
+    }
+
+    &__img {
+      width: 33%;
+      background-color: $color-orange;
+      position: relative;
+
+      @include on-tablet {
+        width: 100%;
+      }
+
+      img {
+        width: 100%;
+        transform: translateX(60px);
+        margin: 60px 0;
+        object-fit: cover;
+        height: calc(100% - 120px);
+
+        @include on-tablet {
+          width: calc(100% - 60px);
+        }
+
+        @include on-mobile {
+          width: calc(100% - 40px);
+          transform: none;
+          margin: 40px 0 40px 40px;
+          height: calc(100% - 80px);
+        }
+      }
+
+      span {
+        color: $color-white;
+        position: absolute;
+        top: 10px;
+        left: 30px;
+        font-family: $font-secondary;
+      }
+    }
+
+    &__content {
+      width: calc(66% - 100px);
+      margin-left: 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      @include on-tablet {
+        width: 100%;
+        margin: 100px 0 0 0;
+        padding: 0 30px;
+      }
+
+      &__values {
+        display: flex;
+        justify-content: center;
+        margin: 60px 0;
+
+        li {
+          padding: 0 26px;
+        }
+
+        li + li {
+          border-left: solid 1px $color-black;
+        }
+      }
+
+      &__button {
+        margin-top: 50px;
+      }
+    }
+  }
+}
