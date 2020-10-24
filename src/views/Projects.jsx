@@ -30,7 +30,10 @@ const Projects = () => {
     return projects.map((project) => {
       return (
         <Link
-          to={`/projets/${project.id}`}
+          to={{
+            pathname: `/projets/${project.id}`,
+            state: { project },
+          }}
           className="projects-list__project"
           key={project.id}
         >

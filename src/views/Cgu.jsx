@@ -1,6 +1,8 @@
 import React from "react";
 
 const Cgu = () => {
+  document.title = "Label Baraque | CGU";
+
   return (
     <main className="cgu container">
       <p className="text-center">Informations générales</p>
