@@ -50,6 +50,11 @@ a {
   line-height: 32px;
 }
 
+p {
+  font-family: $font-secondary;
+  font-size: 18px;
+}
+
 .paragraph + .paragraph {
   padding-top: 16px;
 }
