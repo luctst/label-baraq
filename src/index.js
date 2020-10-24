@@ -1,14 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Header from "./components/Header";
+import "./styles/main.scss";
 import Home from "./views/Home";
+import BaseHeader from "./components/BaseHeader";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Header />
+      <BaseHeader />
       <Switch>
         <Route exact path="/" component={Home} />
       </Switch>
