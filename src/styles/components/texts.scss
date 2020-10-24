@@ -46,3 +46,9 @@ a {
   font-size: 18px;
   line-height: 32px;
 }
+
+.error {
+  display: block;
+  margin: 30px auto;
+  color: $color-red;
+}
