@@ -1,10 +1,12 @@
 import React from "react";
-import BaseLink from "../components/BaseLink";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
     <main>
-      <BaseLink slug="/projets">Découvrez mes projets</BaseLink>
+      <Link to="/projets" className="button">
+        Découvrir mes projets
+      </Link>
     </main>
   );
 };
