@@ -2,6 +2,18 @@
   box-sizing: border-box;
 }
 
+.container {
+  padding: 0 140px;
+
+  @include on-tablet {
+    padding: 0 70px;
+  }
+
+  @include on-mobile {
+    padding: 0 30px;
+  }
+}
+
 body {
   background-color: $color-beige;
   font-family: $font-primary;
@@ -13,7 +25,6 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .hide--tablet {

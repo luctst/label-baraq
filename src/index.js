@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./styles/main.scss";
 import Home from "./views/Home";
+import Projects from "./views/Projects";
 import BaseHeader from "./components/BaseHeader";
 import BaseFooter from "./components/BaseFooter";
 import * as serviceWorker from "./serviceWorker";
@@ -13,6 +14,7 @@ ReactDOM.render(
       <BaseHeader />
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/projets" component={Projects} />
       </Switch>
       <BaseFooter />
     </BrowserRouter>
