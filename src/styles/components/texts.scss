@@ -5,3 +5,44 @@ a {
     text-decoration: underline;
   }
 }
+
+.h1 {
+  font-size: 29px;
+  line-height: 39px;
+}
+
+.h2  {
+  font-size: 25px;
+  line-height: 34px;
+}
+
+.h3 {
+  font-size: 20px;
+  line-height: 27px;
+}
+
+.subtitle {
+  font-family: $font-secondary;
+  font-size: 20px;
+  line-height: 23px;
+}
+
+.small-text {
+  font-size: 13px;
+  line-height: 17px;
+  opacity: 0.5;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.paragraph {
+  font-family: $font-secondary;
+  font-size: 18px;
+  line-height: 32px;
+}
