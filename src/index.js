@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./styles/main.scss";
 import Home from "./views/Home";
 import BaseHeader from "./components/BaseHeader";
+import BaseFooter from "./components/BaseFooter";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
@@ -13,6 +14,7 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" component={Home} />
       </Switch>
+      <BaseFooter />
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

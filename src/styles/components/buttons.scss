@@ -1,0 +1,12 @@
+.button {
+  display: inline-block;
+  background: $color-orange;
+  color: $color-white;
+  padding: 19px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
