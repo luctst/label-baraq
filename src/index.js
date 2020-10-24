@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./styles/main.scss";
 import Home from "./views/Home";
 import Projects from "./views/Projects";
+import Cgu from "./views/Cgu";
 import BaseHeader from "./components/BaseHeader";
 import BaseFooter from "./components/BaseFooter";
 import * as serviceWorker from "./serviceWorker";
@@ -15,6 +16,7 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/projets" component={Projects} />
+        <Route exact path="/cgu" component={Cgu} />
       </Switch>
       <BaseFooter />
     </BrowserRouter>
