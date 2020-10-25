@@ -7,9 +7,9 @@
   margin: 0 auto 1em;
   display: inline-block;
   vertical-align: top;
-}
 
-svg path,
-svg rect {
-  fill: $color-red;
+  svg path,
+  svg rect {
+    fill: $color-red;
+  }
 }
