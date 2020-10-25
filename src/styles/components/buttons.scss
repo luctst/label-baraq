@@ -10,3 +10,19 @@
     text-decoration: underline;
   }
 }
+
+button {
+  display: inline-block;
+  background: $color-beige;
+  color: $color-black;
+  padding: 10px 30px;
+  border: solid 2px $color-black;
+  border-radius: 8px;
+  font-size: 20px;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}

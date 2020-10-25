@@ -5,6 +5,7 @@ import "./styles/main.scss";
 import Home from "./views/Home";
 import Projects from "./views/Projects";
 import Project from "./views/Project";
+import Contact from "./views/Contact";
 import Cgu from "./views/Cgu";
 import BaseHeader from "./components/BaseHeader";
 import BaseFooter from "./components/BaseFooter";
@@ -18,6 +19,7 @@ ReactDOM.render(
         <Route exact path="/" component={Home} />
         <Route exact path="/projets" component={Projects} />
         <Route exact path="/projets/:id" component={Project} />
+        <Route exact path="/contact" component={Contact} />
         <Route exact path="/cgu" component={Cgu} />
       </Switch>
       <BaseFooter />
