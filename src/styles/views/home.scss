@@ -6,6 +6,10 @@
       margin-top: 40px;
       width: 100%;
       max-width: 931px;
+
+      @include on-mobile {
+        height: 100vh; // Should remove the header's height
+      }
     }
 
     &__scroll-arrow {
@@ -16,6 +20,10 @@
 
       &:hover {
         cursor: pointer;
+      }
+
+      @include on-mobile {
+        transform: translateY(calc(-100% - 80px));
       }
     }
   }
@@ -29,6 +37,10 @@
       padding: 150px 0 110px 0;
     }
 
+    @include on-mobile {
+      padding: 50px 0 110px 0;
+    }
+
     &__img {
       width: 33%;
       background-color: $color-orange;
@@ -36,6 +48,11 @@
 
       @include on-tablet {
         width: 100%;
+      }
+
+      @include on-mobile {
+        width: calc(100% - 60px);
+        margin: auto;
       }
 
       img {
