@@ -14,7 +14,7 @@ const Projects = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const resApi = await Api.get('/projects');
+        const resApi = await Api.get("/projects");
 
         setProjects(resApi.data.filter((d) => d.pictures && d.pictures.length));
         setLoading(false);
