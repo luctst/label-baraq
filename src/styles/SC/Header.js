@@ -75,6 +75,11 @@ export default styled.header`
       display: flex;
       justify-content: space-between;
 
+      div:first-child {
+        width: 2%;
+        transform: rotate(90deg);
+      }
+
       p {
         a {
           color: #302a2a;
