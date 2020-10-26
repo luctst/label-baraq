@@ -12,15 +12,19 @@ const Projects = () => {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    Api.get("/projects")
-      .then(({ data }) => {
-        setProjects(data.filter((d) => d.pictures && d.pictures.length));
+    async function fetchData() {
+      try {
+        const resApi = await Api.get('/projects');
+
+        setProjects(resApi.data.filter((d) => d.pictures && d.pictures.length));
         setLoading(false);
-      })
-      .catch(() => {
+      } catch (error) {
         setError(true);
         setLoading(false);
-      });
+      }
+    }
+
+    fetchData();
   }, []);
 
   const renderProjects = () => {
