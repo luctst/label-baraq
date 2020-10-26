@@ -110,10 +110,7 @@ const Contact = () => {
             />
           </div>
           {error && <Error>{error === true ? "Une erreur est survenue." : error}</Error>}
-          <button
-            type="submit"
-            onClick={handleSubmit}
-          >
+          <button type="submit" onClick={handleSubmit}>
             Envoyer
           </button>
         </form>
