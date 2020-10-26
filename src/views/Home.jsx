@@ -14,7 +14,10 @@ const Home = () => {
     <main className="home">
       <section className="hero">
         <img src={HeroImage} alt="Projet Bleu" />
-        <span className="hero__scroll-arrow" style={{display: 'flex', justifyContent: 'center'}}>
+        <span
+          className="hero__scroll-arrow"
+          style={{ display: "flex", justifyContent: "center" }}
+        >
           <svg
             width="26"
             height="20"
