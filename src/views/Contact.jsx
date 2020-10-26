@@ -11,9 +11,11 @@ const Contact = () => {
   const [inputDescription, setInputDescription] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitSuccess] = useState(false);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
     if (!inputName || !inputEmail || !inputNeed) {
       setError("Le formulaire est incomplet.");
       return;
@@ -49,12 +51,7 @@ const Contact = () => {
   const renderFormSection = () => {
     return (
       <section>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            handleSubmit();
-          }}
-        >
+        <form onSubmit={handleSubmit}>
           <div className="input">
             <label htmlFor="name" className="h2">
               Nom / Prénom
@@ -115,10 +112,7 @@ const Contact = () => {
           {error && <Error>{error === true ? "Une erreur est survenue." : error}</Error>}
           <button
             type="submit"
-            onClick={(e) => {
-              e.preventDefault();
-              handleSubmit();
-            }}
+            onClick={handleSubmit}
           >
             Envoyer
           </button>
