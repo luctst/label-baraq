@@ -1,7 +1,7 @@
 import React from "react";
 
-const Error = ({ children }) => (
-  <span className="error">{children || "Une erreur est survenue."}</span>
+const Error = ({ errorContent }) => (
+  <span className="error">{errorContent}</span>
 );
 
 export default Error;

@@ -11,6 +11,14 @@
   }
 }
 
+.button_disabled {
+  opacity: 0.5;
+
+  &:hover {
+    cursor: not-allowed
+  }
+}
+
 button {
   display: inline-block;
   background: $color-beige;
