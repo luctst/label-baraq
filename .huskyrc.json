@@ -1,6 +1,6 @@
 {
     "hooks": {
-        "pre-push": "npm run style:fix",
+        "pre-commit": "npm run style:fix",
         "commit-msg": "Fix eslint, prettier errors."
     }
 }
