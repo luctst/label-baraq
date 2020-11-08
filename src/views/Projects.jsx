@@ -12,6 +12,7 @@ const Projects = () => {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
+    document.body.style = "";
     async function fetchData() {
       try {
         const resApi = await Api.get("/projects");

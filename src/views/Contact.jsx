@@ -14,6 +14,7 @@ const Contact = () => {
   });
 
   React.useEffect(function () {
+    document.body.style = "";
     const newState = { ...state };
 
     ["name", "mail", "need", "description"].forEach((el) => {

@@ -4,6 +4,7 @@ import HeroImage from "../assets/images/bleu.png";
 import ClemImage from "../assets/images/Clem.png";
 
 const Home = () => {
+  document.body.style = "";
   const scrollToPresentation = () => {
     document.querySelector(".presentation").scrollIntoView({
       behavior: "smooth",
