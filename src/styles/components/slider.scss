@@ -1,7 +1,7 @@
 .lightbox {
   height: 100vh;
   width: 100vw;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   display: flex;
@@ -13,11 +13,23 @@
     top: 50%;
     z-index: 3;
     transform: translate(100%, -50%);
+    background-color: $color-beige;
+    border-radius: 8px;
+    width: 65px;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     &:hover {
       cursor: pointer;
     }
 
-    @include on-mobile {
+    svg {
+      margin-right: 5px;
+    }
+
+    @include on-tablet {
       display: none;
     }
   }
@@ -28,11 +40,23 @@
     top: 50%;
     z-index: 3;
     transform: translate(-100%, -50%);
+    background-color: $color-beige;
+    border-radius: 8px;
+    width: 65px;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     &:hover {
       cursor: pointer;
     }
 
-    @include on-mobile {
+    svg {
+      margin-left: 5px;
+    }
+
+    @include on-tablet {
       display: none;
     }
   }
@@ -42,7 +66,7 @@
     right: 0;
     top: 0;
     z-index: 3;
-    transform: translate(-100%, 100%);
+    transform: translate(-65px, 65px);
     &:hover {
       cursor: pointer;
     }
@@ -52,6 +76,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    &__img {
+      width: 50%;
+
+      @include on-tablet {
+        width: calc(100% - 30px);
+      }
+    }
   }
 
   .carousel {
@@ -63,5 +95,9 @@
         width: 100%;
       }
     }
+  }
+
+  .carousel-root {
+    width: 100%;
   }
 }
