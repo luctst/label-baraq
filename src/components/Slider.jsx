@@ -3,22 +3,57 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { apiURL } from "../services/Api";
 
-function hexToRgb(hex) {
+const formatBgColor = (hex) => {
   if (hex.length === 4) {
     hex = hex + hex[1] + hex[1] + hex[1];
   }
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex) || null;
+  if (!result) return;
+  const rgb = {
+    r: parseInt(result[1], 16),
+    g: parseInt(result[2], 16),
+    b: parseInt(result[3], 16),
+  };
+  return `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.8)`;
+};
 
-  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  return result
-    ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16),
-      }
-    : null;
-}
+const CloseCross = (onClose) => {
+  return (
+    <div
+      className="lightbox__cross"
+      onClick={() => {
+        onClose();
+      }}
+    >
+      <svg
+        width="33"
+        height="34"
+        viewBox="0 0 33 34"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <line
+          x1="30.4589"
+          y1="1.86562"
+          x2="2.62776"
+          y2="32.4799"
+          stroke="#A11842"
+          strokeWidth="4.4"
+        />
+        <line
+          x1="30.1847"
+          y1="32.2189"
+          x2="2.50005"
+          y2="1.47204"
+          stroke="#A11842"
+          strokeWidth="4.4"
+        />
+      </svg>
+    </div>
+  );
+};
 
-const LeftArrow = ({ clickHandler }) => {
+const PrevArrow = ({ clickHandler }) => {
   return (
     <div className="lightbox__left-arrow" onClick={clickHandler}>
       <svg
@@ -37,7 +72,7 @@ const LeftArrow = ({ clickHandler }) => {
   );
 };
 
-const RightArrow = ({ clickHandler }) => {
+const NextArrow = ({ clickHandler }) => {
   return (
     <div className="lightbox__right-arrow" onClick={clickHandler}>
       <svg
@@ -57,51 +92,24 @@ const RightArrow = ({ clickHandler }) => {
 };
 
 const Slider = (props) => {
-  const background = () => {
-    const rgb = hexToRgb(props.bgColor);
-    return `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.8)`;
+  const listenKey = (event) => {
+    if (event.keyCode === 27) {
+      props.onClose();
+    }
   };
 
+  window.addEventListener("keydown", listenKey, true);
+
   return (
-    <div className="lightbox" style={{ backgroundColor: background() }}>
-      <div
-        className="lightbox__cross"
-        onClick={() => {
-          props.onClose();
-        }}
-      >
-        <svg
-          width="33"
-          height="34"
-          viewBox="0 0 33 34"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <line
-            x1="30.4589"
-            y1="1.86562"
-            x2="2.62776"
-            y2="32.4799"
-            stroke="#A11842"
-            strokeWidth="4.4"
-          />
-          <line
-            x1="30.1847"
-            y1="32.2189"
-            x2="2.50005"
-            y2="1.47204"
-            stroke="#A11842"
-            strokeWidth="4.4"
-          />
-        </svg>
-      </div>
+    <div className="lightbox" style={{ backgroundColor: formatBgColor(props.bgColor) }}>
+      <CloseCross onClose={props.onClose} />
       <Carousel
         showArrows={true}
         showThumbs={false}
         showIndicators={false}
-        selectedItem={props.focus || 1}
-        renderArrowPrev={(clickHandler) => <LeftArrow clickHandler={clickHandler} />}
-        renderArrowNext={(clickHandler) => <RightArrow clickHandler={clickHandler} />}
+        selectedItem={props.focus}
+        renderArrowPrev={(clickHandler) => <PrevArrow clickHandler={clickHandler} />}
+        renderArrowNext={(clickHandler) => <NextArrow clickHandler={clickHandler} />}
       >
         {props.images.map((image, index) => (
           <div key={index} className="lightbox__slide">

@@ -11,6 +11,7 @@ const Project = (props) => {
   const [error, setError] = useState(false);
   const [project, setProject] = useState(null);
   const [showSlider, setShowSlider] = useState(false);
+  const [focusSlide, setFocusSlide] = useState(1);
 
   const params = useParams();
 
@@ -57,10 +58,14 @@ const Project = (props) => {
               </h1>
             </section>
             <section className="project__grid">
-              <div className="project__grid__first">
+              <div className="project__grid__first pointer">
                 <img
                   src={`https://label-baraq.herokuapp.com${project.pictures[0].url}`}
                   alt="background image"
+                  onClick={() => {
+                    setShowSlider(true);
+                    setFocusSlide(0);
+                  }}
                 />
               </div>
               <div className="project__grid__hexa">
@@ -69,18 +74,19 @@ const Project = (props) => {
               <div className="project__grid__before-after">
                 <ComparisonSlider
                   imageOne={`https://label-baraq.herokuapp.com${project.before.url}`}
-                  imageTwo={`https://label-baraq.herokuapp.com${project.pictures[0].url}`}
+                  imageTwo={`https://label-baraq.herokuapp.com${project.after.url}`}
                 />
               </div>
-              {project.pictures.map(function (el, index) {
+              {project.pictures.slice(1).map(function (el, index) {
                 const c = ["project__grid__horizontal", "project__grid__vertical"];
 
                 return (
                   <div
                     key={index}
-                    className={c[Math.round(Math.random())]}
+                    className={`${c[Math.round(Math.random())]} pointer`}
                     onClick={() => {
                       setShowSlider(true);
+                      setFocusSlide(index + 1);
                     }}
                   >
                     <img
@@ -101,7 +107,7 @@ const Project = (props) => {
               <Slider
                 images={project.pictures}
                 bgColor={project.backgroundColor}
-                focus={1}
+                focus={focusSlide}
                 onClose={() => {
                   setShowSlider(false);
                 }}
