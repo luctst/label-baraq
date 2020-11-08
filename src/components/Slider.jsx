@@ -109,6 +109,7 @@ const Slider = (props) => {
         showIndicators={false}
         showStatus={false}
         swipeable={true}
+        useKeyboardArrows={true}
         selectedItem={props.focus}
         renderArrowPrev={(clickHandler) => <PrevArrow clickHandler={clickHandler} />}
         renderArrowNext={(clickHandler) => <NextArrow clickHandler={clickHandler} />}
