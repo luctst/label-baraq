@@ -55,7 +55,7 @@ const BaseHeader = (props) => {
             </Link>
           </p>
         ) : (
-          <div onClick={props.history.goBack}>
+          <div onClick={props.history.goBack} className="pointer">
             <svg viewBox="0 0 26 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M13.8322 18.7507C13.4365 19.3448 12.5635 19.3448 12.1678 18.7507L1.04513 2.05442C0.602406 1.38984 1.07883 0.5 1.87737 0.5L24.1226 0.5C24.9212 0.5 25.3976 1.38984 24.9549 2.05442L13.8322 18.7507Z"
