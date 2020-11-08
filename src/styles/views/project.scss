@@ -19,18 +19,27 @@
 
 
     &__first {
-      // width: 30%;
+      grid-column: 1 / 2;
+      grid-row: 1 / 4;
+    }
+
+    &__hexa {
+      border: 1px solid #fff;
+      padding: 2% 0 22% 2%;
+      color: #fff;
+      text-align: left;
+      width: 36%;
     }
 
     &__before-after {
       grid-column: 3 / 4;
-      grid-row: 1 / 4;
+      grid-row: 1 / 5;
     }
 
     div {
       img {
         object-fit: cover;
-        height: inherit;
+        height: 100%;
         width: 100%;
       }
     }

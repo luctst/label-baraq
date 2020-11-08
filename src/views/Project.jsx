@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { apiURL, Api } from "../services/Api";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
+import ComparisonSlider from '../components/ComparisonSlider';
 
 const Project = (props) => {
   const [loading, setLoading] = useState(true);
@@ -64,9 +65,9 @@ const Project = (props) => {
                 <span>{project.backgroundColor}</span>
               </div>
               <div className="project__grid__before-after">
-                <img
-                  src={`https://label-baraq.herokuapp.com${project.before.url}`}
-                  alt="before | after"
+                <ComparisonSlider 
+                  imageOne={`https://label-baraq.herokuapp.com${project.before.url}`}
+                  imageTwo={`https://label-baraq.herokuapp.com${project.pictures[0].url}`}
                 />
               </div>
               {
