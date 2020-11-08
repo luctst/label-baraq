@@ -13,37 +13,34 @@ const Contact = () => {
     errorApi: false,
   });
 
-  React.useEffect(
-    function () {
-      const newState = { ...state };
+  React.useEffect(function () {
+    const newState = { ...state };
 
-      ["name", "mail", "need", "description"].forEach((el) => {
-        const objToCreate = {
-          error: false,
-          messageError: "",
-          accessToChange: false,
-          inputValue: "",
-        };
+    ["name", "mail", "need", "description"].forEach((el) => {
+      const objToCreate = {
+        error: false,
+        messageError: "",
+        accessToChange: false,
+        inputValue: "",
+      };
 
-        if (el === "need") {
-          return (newState.formError[el] = {
-            ...objToCreate,
-            inputValue: "Coaching déco : conseils sur une mission précise",
-          });
-        }
-
+      if (el === "need") {
         return (newState.formError[el] = {
-          error: false,
-          messageError: "",
-          accessToChange: false,
-          inputValue: "",
+          ...objToCreate,
+          inputValue: "Coaching déco : conseils sur une mission précise",
         });
-      });
+      }
 
-      return setState(newState);
-    },
-    [state]
-  );
+      return (newState.formError[el] = {
+        error: false,
+        messageError: "",
+        accessToChange: false,
+        inputValue: "",
+      });
+    });
+
+    return setState(newState);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
