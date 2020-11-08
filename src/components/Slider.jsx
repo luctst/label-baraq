@@ -114,7 +114,11 @@ const Slider = (props) => {
         {props.images.map((image, index) => (
           <div key={index} className="lightbox__slide">
             <div>
-              <img src={`${apiURL}${image.url}`} className="lightbox__image" />
+              <img
+                src={`${apiURL}${image.url}`}
+                className="lightbox__image"
+                alt={`Slide ${index + 1}`}
+              />
             </div>
           </div>
         ))}

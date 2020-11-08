@@ -61,7 +61,7 @@ const Project = (props) => {
               <div className="project__grid__first pointer">
                 <img
                   src={`https://label-baraq.herokuapp.com${project.pictures[0].url}`}
-                  alt="background image"
+                  alt="background"
                   onClick={() => {
                     setShowSlider(true);
                     setFocusSlide(0);
@@ -73,8 +73,8 @@ const Project = (props) => {
               </div>
               <div className="project__grid__before-after">
                 <ComparisonSlider
-                  imageOne={`https://label-baraq.herokuapp.com${project.before.url}`}
-                  imageTwo={`https://label-baraq.herokuapp.com${project.after.url}`}
+                  imageOne={`${apiURL}${project.before.url}`}
+                  imageTwo={`${apiURL}${project.after.url}`}
                 />
               </div>
               {project.pictures.slice(1).map(function (el, index) {
@@ -89,10 +89,7 @@ const Project = (props) => {
                       setFocusSlide(index + 1);
                     }}
                   >
-                    <img
-                      src={`https://label-baraq.herokuapp.com${el.url}`}
-                      alt={el.name}
-                    />
+                    <img src={`${apiURL}${el.url}`} alt={el.name} />
                   </div>
                 );
               })}
