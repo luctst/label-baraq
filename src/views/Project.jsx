@@ -54,21 +54,33 @@ const Project = (props) => {
               </h1>
             </section>
             <section className="project__grid">
-              <div className="project__first">
+              <div className="project__grid__first">
                 <img
                   src={`https://label-baraq.herokuapp.com${project.pictures[0].url}`}
                   alt="background image"
                 />
               </div>
-              <div className="project__hexa">
+              <div className="project__grid__hexa">
                 <span>{project.backgroundColor}</span>
               </div>
-              <div className="project__before-after">
+              <div className="project__grid__before-after">
                 <img
                   src={`https://label-baraq.herokuapp.com${project.before.url}`}
                   alt="before | after"
                 />
               </div>
+              {
+                project.pictures.map(function (el, index) {
+                  return (
+                    <div key={index}>
+                      <img 
+                        src={`https://label-baraq.herokuapp.com${el.url}`}
+                        alt={el.name}
+                      />
+                    </div>
+                  );
+                })
+              }
             </section>
             <p className="mb--30">
               Tu as aimé ce projet ? C'est à ton tour de te lance !
