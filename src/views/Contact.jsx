@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import ClemImage from "../assets/images/Clem-2.png";
+import ClemImage from "../assets/images/Clem-3.png";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
 
