@@ -4,9 +4,9 @@ import { defineCustomElements as defineImgComparisonSlider } from "img-compariso
 const ComparisonSlider = (props) => {
   defineImgComparisonSlider(window);
   return (
-    <img-comparison-slider>
-      <img slot="before" src={props.imageOne} style={{ width: "100%" }} />
-      <img slot="after" src={props.imageTwo} style={{ width: "100%" }} />
+    <img-comparison-slider class="image-slider">
+      <img slot="before" src={props.imageOne} height="100%"/>
+      <img slot="after" src={props.imageTwo} height="100%"/>
     </img-comparison-slider>
   );
 };

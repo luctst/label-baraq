@@ -72,8 +72,10 @@ const Project = (props) => {
               </div>
               {
                 project.pictures.map(function (el, index) {
+                  const c = ['project__grid__horizontal', 'project__grid__vertical'];
+
                   return (
-                    <div key={index}>
+                    <div key={index} className={c[Math.round(Math.random())]}>
                       <img 
                         src={`https://label-baraq.herokuapp.com${el.url}`}
                         alt={el.name}

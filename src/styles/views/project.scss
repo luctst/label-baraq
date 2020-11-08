@@ -3,6 +3,28 @@
   padding-bottom: 110px;
   text-align: center;
 
+  .hydrated {
+    height: inherit;
+
+    div {
+      height: inherit;
+    }
+  }
+
+  img-comparison-slider.image-slider::part(native) {
+    div {
+      height: 100%;
+    }
+  }
+
+  .image-slider {
+    height: 100%;
+
+    div {
+      height: 100%;
+    }
+  }
+
   &__title {
     margin-bottom: 100px;
     text-align: left;
@@ -11,16 +33,25 @@
   &__grid {
     display: grid;
     justify-items: stretch;
-    grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(25%, max-content));
     grid-auto-rows: 100px;
     grid-auto-flow: row dense;
     grid-gap: 32px;
     margin-bottom: 100px;
 
+    div {
+      height: 100%;
+
+      img {
+        object-fit: cover;
+        height: inherit;
+        width: 100%;
+      }
+    }
 
     &__first {
       grid-column: 1 / 2;
-      grid-row: 1 / 4;
+      grid-row: 1 / 3;
     }
 
     &__hexa {
@@ -29,18 +60,35 @@
       color: #fff;
       text-align: left;
       width: 36%;
+      grid-row: 1 / 2;
     }
 
     &__before-after {
+      height: 100%;
       grid-column: 3 / 4;
-      grid-row: 1 / 5;
+      grid-row: 1 / 6;
     }
 
-    div {
-      img {
-        object-fit: cover;
-        height: 100%;
-        width: 100%;
+    &__vertical {
+      grid-row: auto / span 2;
+    }
+
+    &__horizontal {
+      grid-row: auto / span 3;
+    }
+  }
+
+  @include on-mobile {
+    &__grid {
+      display: block;
+
+      div {
+        margin-bottom: 16%;
+      }
+
+      &__hexa {
+        margin: 0 auto;
+        width: 40%;
       }
     }
   }
