@@ -2,6 +2,7 @@ import React from "react";
 
 const Cgu = () => {
   document.title = "Label Baraque | CGU";
+  document.body.style = "";
 
   return (
     <main className="cgu container">

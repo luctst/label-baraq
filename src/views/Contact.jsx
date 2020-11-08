@@ -108,6 +108,44 @@ const Contact = () => {
     return setState(newState);
   }
 
+  async function formSubmit(e) {
+    e.preventDefault();
+
+    setState({
+      ...state,
+      loading: true
+    })
+    // sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API_KEY);
+
+    // try {
+    //   await sgMail.send({
+    //     to: 'lucas.tostee@gmail.com',
+    //     from: 'lucas.tostee@gmail.com',
+    //     subject: state.formError.need.inputValue,
+    //     html: `
+    //     <h1>${state.formError.name.inputValue} aimerais des informations :)</h1>
+    //     <small>Ses informations:</small>
+    //     <ul>
+    //       <li>Mail - <strong>${state.formError.mail.inputValue}</strong></li>
+    //       <li>Description projet - ${state.formError.description.inputValue}</li>
+    //     </ul>
+    //     `
+    //   });
+
+    //   setState({
+    //     ...state,
+    //     submitSuccess: true,
+    //     loading: false
+    //   })
+    // } catch (error) {
+    //   setState({
+    //     ...state,
+    //     errorApi: true,
+    //     loading: false
+    //   })
+    // }
+  }
+
   return (
     <main className="contact container">
       <section className="text-center">
@@ -140,7 +178,7 @@ const Contact = () => {
 
         return (
           <section>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={formSubmit}>
               <div className="input">
                 <label htmlFor="name" className="h2">
                   Nom / Prénom

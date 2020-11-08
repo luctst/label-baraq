@@ -17,7 +17,7 @@ const formatBgColor = (hex) => {
   return `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.8)`;
 };
 
-const CloseCross = (onClose) => {
+const CloseCross = ({onClose}) => {
   return (
     <div
       className="lightbox__cross"
