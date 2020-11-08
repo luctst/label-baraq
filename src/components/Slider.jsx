@@ -17,7 +17,7 @@ const formatBgColor = (hex) => {
   return `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.8)`;
 };
 
-const CloseCross = ({onClose}) => {
+const CloseCross = ({ onClose }) => {
   return (
     <div
       className="lightbox__cross"
@@ -107,13 +107,15 @@ const Slider = (props) => {
         showArrows={true}
         showThumbs={false}
         showIndicators={false}
+        showStatus={false}
+        swipeable={true}
         selectedItem={props.focus}
         renderArrowPrev={(clickHandler) => <PrevArrow clickHandler={clickHandler} />}
         renderArrowNext={(clickHandler) => <NextArrow clickHandler={clickHandler} />}
       >
         {props.images.map((image, index) => (
           <div key={index} className="lightbox__slide">
-            <div>
+            <div className="lightbox__slide__img">
               <img
                 src={`${apiURL}${image.url}`}
                 className="lightbox__image"
