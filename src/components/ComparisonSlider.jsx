@@ -1,13 +1,17 @@
 import React from "react";
-import { defineCustomElements as defineImgComparisonSlider } from "img-comparison-slider/loader";
+import ImageSlider from "react-image-comparison-slider";
 
 const ComparisonSlider = (props) => {
-  defineImgComparisonSlider(window);
   return (
-    <img-comparison-slider class="image-slider">
-      <img slot="before" src={props.imageOne} height="100%"/>
-      <img slot="after" src={props.imageTwo} height="100%"/>
-    </img-comparison-slider>
+    <div>
+      <ImageSlider
+        image1={props.imageOne}
+        image2={props.imageTwo}
+        sliderWidth={2}
+        sliderColor="white"
+        handleColor="white"
+      />
+    </div>
   );
 };
 
