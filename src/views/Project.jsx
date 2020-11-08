@@ -3,12 +3,14 @@ import { Link, useParams } from "react-router-dom";
 import { apiURL, Api } from "../services/Api";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
-import ComparisonSlider from '../components/ComparisonSlider';
+import ComparisonSlider from "../components/ComparisonSlider";
+import Slider from "../components/Slider";
 
 const Project = (props) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [project, setProject] = useState(null);
+  const [showSlider, setShowSlider] = useState(false);
 
   const params = useParams();
 
@@ -65,25 +67,29 @@ const Project = (props) => {
                 <span>{project.backgroundColor}</span>
               </div>
               <div className="project__grid__before-after">
-                <ComparisonSlider 
+                <ComparisonSlider
                   imageOne={`https://label-baraq.herokuapp.com${project.before.url}`}
                   imageTwo={`https://label-baraq.herokuapp.com${project.pictures[0].url}`}
                 />
               </div>
-              {
-                project.pictures.map(function (el, index) {
-                  const c = ['project__grid__horizontal', 'project__grid__vertical'];
+              {project.pictures.map(function (el, index) {
+                const c = ["project__grid__horizontal", "project__grid__vertical"];
 
-                  return (
-                    <div key={index} className={c[Math.round(Math.random())]}>
-                      <img 
-                        src={`https://label-baraq.herokuapp.com${el.url}`}
-                        alt={el.name}
-                      />
-                    </div>
-                  );
-                })
-              }
+                return (
+                  <div
+                    key={index}
+                    className={c[Math.round(Math.random())]}
+                    onClick={() => {
+                      setShowSlider(true);
+                    }}
+                  >
+                    <img
+                      src={`https://label-baraq.herokuapp.com${el.url}`}
+                      alt={el.name}
+                    />
+                  </div>
+                );
+              })}
             </section>
             <p className="mb--30">
               Tu as aimé ce projet ? C'est à ton tour de te lance !
@@ -91,6 +97,16 @@ const Project = (props) => {
             <Link to="/contact" className="button">
               Contacte Label Baraque
             </Link>
+            {showSlider && (
+              <Slider
+                images={project.pictures}
+                bgColor={project.backgroundColor}
+                focus={1}
+                onClose={() => {
+                  setShowSlider(false);
+                }}
+              />
+            )}
           </>
         );
       })()}
