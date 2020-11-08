@@ -19,7 +19,9 @@
       max-width: 931px;
 
       @include on-mobile {
-        height: 100vh; // Should remove the header's height
+        height: calc(100vh - 80px);
+        object-fit: cover;
+        object-position: left;
       }
     }
 
