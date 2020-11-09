@@ -114,8 +114,8 @@ const Contact = () => {
 
     setState({
       ...state,
-      loading: true
-    })
+      loading: true,
+    });
     // sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API_KEY);
 
     // try {
