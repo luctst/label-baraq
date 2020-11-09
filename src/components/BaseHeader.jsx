@@ -43,7 +43,9 @@ const BaseHeader = (props) => {
           <img src={burgerSVG} alt="menu burger" onClick={() => setNavOpen(!navOpen)} />
         </div>
         <div>
-          <img src={labelBaraqLogo} alt="Logo label baraq" />
+          <Link to="/">
+            <img src={labelBaraqLogo} alt="Logo label baraq" />
+          </Link>
         </div>
       </nav>
       <nav className="nav--desktop container">
@@ -65,7 +67,9 @@ const BaseHeader = (props) => {
           </div>
         )}
         <div>
-          <img src={labelBaraqLogo} alt="label baraq logo" />
+          <Link to="/">
+            <img src={labelBaraqLogo} alt="label baraq logo" />
+          </Link>
         </div>
         <p>
           <Link to="/contact">
