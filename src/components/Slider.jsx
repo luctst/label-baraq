@@ -1,7 +1,6 @@
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import { apiURL } from "../services/Api";
 
 const formatBgColor = (hex) => {
   if (hex.length === 4) {
@@ -118,7 +117,7 @@ const Slider = (props) => {
           <div key={index} className="lightbox__slide">
             <div className="lightbox__slide__img">
               <img
-                src={`${apiURL}${image.url}`}
+                src={image.url}
                 className="lightbox__image"
                 alt={`Slide ${index + 1}`}
               />

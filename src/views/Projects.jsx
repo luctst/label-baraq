@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { apiURL, Api } from "../services/Api";
+import { Api } from "../services/Api";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
 
@@ -42,7 +42,7 @@ const Projects = () => {
           className="projects-list__project"
           key={project.id}
         >
-          <img src={`${apiURL}${project.pictures[0].url}`} alt={project.projectName} />
+          <img src={project.pictures[0].url} alt={project.projectName} />
           <h2 className="h3 graduated">
             {project.projectName}
             <span className="graduation"></span>

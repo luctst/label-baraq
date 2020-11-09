@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { apiURL, Api } from "../services/Api";
+import { Api } from "../services/Api";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
 import ComparisonSlider from "../components/ComparisonSlider";
@@ -60,7 +60,7 @@ const Project = (props) => {
             <section className="project__grid">
               <div className="project__grid__first pointer">
                 <img
-                  src={`https://label-baraq.herokuapp.com${project.pictures[0].url}`}
+                  src={project.pictures[0].url}
                   alt="background"
                   onClick={() => {
                     setShowSlider(true);
@@ -73,8 +73,8 @@ const Project = (props) => {
               </div>
               <div className="project__grid__before-after">
                 <ComparisonSlider
-                  imageOne={`${apiURL}${project.before.url}`}
-                  imageTwo={`${apiURL}${project.after.url}`}
+                  imageOne={project.before.url}
+                  imageTwo={project.after.url}
                 />
               </div>
               {project.pictures.slice(1).map(function (el, index) {
@@ -89,7 +89,7 @@ const Project = (props) => {
                       setFocusSlide(index + 1);
                     }}
                   >
-                    <img src={`${apiURL}${el.url}`} alt={el.name} />
+                    <img src={el.url} alt={el.name} />
                   </div>
                 );
               })}
