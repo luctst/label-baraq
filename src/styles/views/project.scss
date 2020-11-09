@@ -42,13 +42,14 @@
   &__grid {
     display: grid;
     justify-items: stretch;
-    grid-template-columns: repeat(auto-fit, minmax(25%, max-content));
+    grid-template-columns: repeat(auto-fit, minmax(25%, auto));
     grid-auto-rows: 100px;
     grid-auto-flow: row dense;
     grid-gap: 32px;
     margin-bottom: 100px;
 
     div {
+      text-align: left;
       height: 100%;
 
       img {
@@ -68,7 +69,7 @@
       padding: 2% 0 22% 2%;
       color: #fff;
       text-align: left;
-      width: 36%;
+      width: 26%;
       grid-row: 1 / 2;
     }
 
