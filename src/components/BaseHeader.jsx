@@ -12,7 +12,7 @@ const BaseHeader = (props) => {
   const [navOpen, setNavOpen] = React.useState(false);
 
   if (navOpen) {
-    document.body.style = 'overflow:hidden';
+    document.body.style = "overflow:hidden";
     return createPortal(
       <SCheaderModel className="container">
         <header>
@@ -38,7 +38,7 @@ const BaseHeader = (props) => {
     );
   }
 
-  document.body.style = '';
+  document.body.style = "";
   return (
     <SCheader>
       <nav className="nav--mobile container">
@@ -74,16 +74,16 @@ const BaseHeader = (props) => {
             <img src={labelBaraqLogo} alt="label baraq logo" />
           </Link>
         </div>
-        {
-          props.location.pathname === '/contact' || props.location.pathname === '/cgu' ? 
-            <p></p>
-          : <p>
-              <Link to="/contact">
-                contact
-                <span></span>
-              </Link>
-            </p>
-        }
+        {props.location.pathname === "/contact" || props.location.pathname === "/cgu" ? (
+          <p></p>
+        ) : (
+          <p>
+            <Link to="/contact">
+              contact
+              <span></span>
+            </Link>
+          </p>
+        )}
       </nav>
     </SCheader>
   );

@@ -14,11 +14,11 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={Home} ignoreScrollBehavior/>
-        <Route exact path="/projets" component={Projects} ignoreScrollBehavior/>
-        <Route exact path="/projets/:id" component={Project} ignoreScrollBehavior/>
-        <Route exact path="/contact" component={Contact} ignoreScrollBehavior/>
-        <Route exact path="/cgu" component={Cgu} ignoreScrollBehavior/>
+        <Route exact path="/" component={Home} ignoreScrollBehavior />
+        <Route exact path="/projets" component={Projects} ignoreScrollBehavior />
+        <Route exact path="/projets/:id" component={Project} ignoreScrollBehavior />
+        <Route exact path="/contact" component={Contact} ignoreScrollBehavior />
+        <Route exact path="/cgu" component={Cgu} ignoreScrollBehavior />
       </Switch>
       <BaseFooter />
     </BrowserRouter>
