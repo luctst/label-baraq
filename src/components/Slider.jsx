@@ -16,42 +16,6 @@ const formatBgColor = (hex) => {
   return `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.8)`;
 };
 
-const CloseCross = ({ onClose }) => {
-  return (
-    <div
-      className="lightbox__cross"
-      onClick={() => {
-        onClose();
-      }}
-    >
-      <svg
-        width="33"
-        height="34"
-        viewBox="0 0 33 34"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <line
-          x1="30.4589"
-          y1="1.86562"
-          x2="2.62776"
-          y2="32.4799"
-          stroke="#A11842"
-          strokeWidth="4.4"
-        />
-        <line
-          x1="30.1847"
-          y1="32.2189"
-          x2="2.50005"
-          y2="1.47204"
-          stroke="#A11842"
-          strokeWidth="4.4"
-        />
-      </svg>
-    </div>
-  );
-};
-
 const PrevArrow = ({ clickHandler }) => {
   return (
     <div className="lightbox__left-arrow" onClick={clickHandler}>
@@ -92,7 +56,17 @@ const NextArrow = ({ clickHandler }) => {
 
 const Slider = (props) => {
   const listenKey = (event) => {
-    if (event.keyCode === 27) {
+    if (event.key === "Escape") {
+      props.onClose();
+    }
+  };
+
+  const clickOutside = (event) => {
+    const cloneEvent = { ...event };
+    if (
+      cloneEvent.target.className !== "lightbox__slide__img" &&
+      cloneEvent.target.tagName !== "path"
+    ) {
       props.onClose();
     }
   };
@@ -100,8 +74,11 @@ const Slider = (props) => {
   window.addEventListener("keydown", listenKey, true);
 
   return (
-    <div className="lightbox" style={{ backgroundColor: formatBgColor(props.bgColor) }}>
-      <CloseCross onClose={props.onClose} />
+    <div
+      className="lightbox"
+      style={{ backgroundColor: formatBgColor(props.bgColor) }}
+      onClick={clickOutside}
+    >
       <Carousel
         showArrows={true}
         showThumbs={false}
