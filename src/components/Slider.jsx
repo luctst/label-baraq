@@ -86,6 +86,7 @@ const Slider = (props) => {
         showStatus={false}
         swipeable={true}
         useKeyboardArrows={true}
+        infiniteLoop={true}
         selectedItem={props.focus}
         renderArrowPrev={(clickHandler) => <PrevArrow clickHandler={clickHandler} />}
         renderArrowNext={(clickHandler) => <NextArrow clickHandler={clickHandler} />}
@@ -95,7 +96,7 @@ const Slider = (props) => {
             <div className="lightbox__slide__img">
               <img
                 src={image.url}
-                className="lightbox__image"
+                className="lightbox__image fade"
                 alt={`Slide ${index + 1}`}
               />
             </div>
