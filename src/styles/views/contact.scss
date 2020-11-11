@@ -36,6 +36,7 @@
   }
 
   button {
+    font-family: 'Viga', sans-serif;
     margin-left: auto;
     display: block;
   }
@@ -54,7 +55,7 @@
       border-radius: 8px;
       padding: 16px;
       background-color: $color-beige;
-      font-family: $font-primary;
+      font-family: 'Roboto', sans-serif;
       font-size: 16px;
     }
 
@@ -80,8 +81,22 @@
       border-radius: 8px;
       padding: 16px;
       background-color: $color-beige;
-      font-family: $font-primary;
+      font-family: 'Roboto', sans-serif;
       font-size: 16px;
+    }
+
+    input,
+    textarea,
+    select {
+      outline: none;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border: solid 2px #000;
+      color: #000;
+      opacity: 33%;
     }
   }
 }

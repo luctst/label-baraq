@@ -120,6 +120,7 @@ export default styled.header`
       }
 
       div {
+        margin-top: 1%;
         width: 11%;
 
         img {

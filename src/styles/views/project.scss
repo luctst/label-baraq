@@ -12,6 +12,11 @@
     background-color: #f6f4e1;
   }
 
+  .lightbox__right-arrow,
+  .lightbox__left-arrow {
+    background-color: transparent;
+  }
+
   .hydrated {
     height: inherit;
 
@@ -71,6 +76,11 @@
       text-align: left;
       width: 26%;
       grid-row: 1 / 2;
+
+      span {
+          font-family: 'Roboto', sans-serif;
+          font-weight: bold;
+        }
     }
 
     &__before-after {

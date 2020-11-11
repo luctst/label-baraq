@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Api } from "../services/Api";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
+import BaseHeader from "../components/BaseHeader";
 
 const Projects = () => {
   document.title = "Label Baraque | Projets";
@@ -53,20 +54,23 @@ const Projects = () => {
   };
 
   return (
-    <main className="projects container">
-      <div className="projects__title">
-        <h1 className="h1 uppercase graduated">
-          Les réalisations
-          <span className="graduation"></span>
-        </h1>
-      </div>
-      <div className="projects-list">{renderProjects()}</div>
-      {!loading && (
-        <Link to="/contact" className="button">
-          Contacte Label Baraque
-        </Link>
-      )}
-    </main>
+    <>
+      <BaseHeader />
+      <main className="projects container">
+        <div className="projects__title">
+          <h1 className="h1 uppercase graduated">
+            Les réalisations
+            <span className="graduation"></span>
+          </h1>
+        </div>
+        <div className="projects-list">{renderProjects()}</div>
+        {!loading && (
+          <Link to="/contact" className="button">
+            Contacte Label Baraque !
+          </Link>
+        )}
+      </main>
+    </>
   );
 };
 

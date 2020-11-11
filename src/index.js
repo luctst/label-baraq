@@ -7,20 +7,18 @@ import Projects from "./views/Projects";
 import Project from "./views/Project";
 import Contact from "./views/Contact";
 import Cgu from "./views/Cgu";
-import BaseHeader from "./components/BaseHeader";
 import BaseFooter from "./components/BaseFooter";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <BaseHeader />
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/projets" component={Projects} />
-        <Route exact path="/projets/:id" component={Project} />
-        <Route exact path="/contact" component={Contact} />
-        <Route exact path="/cgu" component={Cgu} />
+        <Route exact path="/" component={Home} ignoreScrollBehavior/>
+        <Route exact path="/projets" component={Projects} ignoreScrollBehavior/>
+        <Route exact path="/projets/:id" component={Project} ignoreScrollBehavior/>
+        <Route exact path="/contact" component={Contact} ignoreScrollBehavior/>
+        <Route exact path="/cgu" component={Cgu} ignoreScrollBehavior/>
       </Switch>
       <BaseFooter />
     </BrowserRouter>

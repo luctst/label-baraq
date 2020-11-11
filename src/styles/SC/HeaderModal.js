@@ -38,6 +38,7 @@ export default styled.section`
 
       li {
         a {
+          color: #000;
           font-family: "Viga";
           font-weight: 400;
         }

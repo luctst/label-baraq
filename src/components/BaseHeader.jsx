@@ -4,14 +4,15 @@ import { withRouter } from "react-router-dom";
 import SCheader from "../styles/SC/Header";
 import { Link } from "react-router-dom";
 import SCheaderModel from "../styles/SC/HeaderModal";
-import burgerSVG from "../assets/images/menu.svg";
-import labelBaraqLogo from "../assets/images/LABEL-BARAQUE.png";
-import cancel from "../assets/images/cancel.svg";
+import burger from "../assets/images/Burger.png";
+import labelBaraqLogo from "../assets/images/logo.png";
+import cancel from "../assets/images/Croix.png";
 
 const BaseHeader = (props) => {
   const [navOpen, setNavOpen] = React.useState(false);
 
   if (navOpen) {
+    document.body.style = 'overflow:hidden';
     return createPortal(
       <SCheaderModel className="container">
         <header>
@@ -25,10 +26,11 @@ const BaseHeader = (props) => {
         <main>
           <ul>
             <li>
-              <Link to="/projets" />
-              REALISATIONS
+              <Link to="/projets">REALISATIONS</Link>
             </li>
-            <li>CONTACT</li>
+            <li>
+              <Link to="/contact">CONTACT</Link>
+            </li>
           </ul>
         </main>
       </SCheaderModel>,
@@ -36,11 +38,12 @@ const BaseHeader = (props) => {
     );
   }
 
+  document.body.style = '';
   return (
     <SCheader>
       <nav className="nav--mobile container">
         <div>
-          <img src={burgerSVG} alt="menu burger" onClick={() => setNavOpen(!navOpen)} />
+          <img src={burger} alt="menu burger" onClick={() => setNavOpen(!navOpen)} />
         </div>
         <div>
           <Link to="/">
@@ -71,12 +74,16 @@ const BaseHeader = (props) => {
             <img src={labelBaraqLogo} alt="label baraq logo" />
           </Link>
         </div>
-        <p>
-          <Link to="/contact">
-            contact
-            <span></span>
-          </Link>
-        </p>
+        {
+          props.location.pathname === '/contact' || props.location.pathname === '/cgu' ? 
+            <p></p>
+          : <p>
+              <Link to="/contact">
+                contact
+                <span></span>
+              </Link>
+            </p>
+        }
       </nav>
     </SCheader>
   );
