@@ -1,6 +1,7 @@
-import React from "react";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
+import React, { useRef, useEffect, useState } from "react";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import SlickSlider from "react-slick";
 
 const formatBgColor = (hex) => {
   if (hex.length === 4) {
@@ -16,9 +17,9 @@ const formatBgColor = (hex) => {
   return `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.8)`;
 };
 
-const PrevArrow = ({ clickHandler }) => {
+const PrevArrow = ({ onClick }) => {
   return (
-    <div className="lightbox__left-arrow" onClick={clickHandler}>
+    <div className="lightbox__left-arrow" onClick={onClick}>
       <svg
         width="27"
         height="34"
@@ -35,9 +36,9 @@ const PrevArrow = ({ clickHandler }) => {
   );
 };
 
-const NextArrow = ({ clickHandler }) => {
+const NextArrow = ({ onClick }) => {
   return (
-    <div className="lightbox__right-arrow" onClick={clickHandler}>
+    <div className="lightbox__right-arrow" onClick={onClick}>
       <svg
         width="27"
         height="34"
@@ -55,23 +56,55 @@ const NextArrow = ({ clickHandler }) => {
 };
 
 const Slider = (props) => {
+  const slider = useRef(null);
+  const [currentSlide, setCurrentSlide] = useState(props.focus);
+
   const listenKey = (event) => {
-    if (event.key === "Escape") {
-      props.onClose();
+    switch (event.key) {
+      case "ArrowLeft":
+        slider.current.slickPrev();
+        break;
+      case "ArrowRight":
+        slider.current.slickNext();
+        break;
+      case "Escape":
+        window.removeEventListener("keydown", listenKey, true);
+        props.onClose();
+        break;
     }
   };
 
   const clickOutside = (event) => {
     const cloneEvent = { ...event };
     if (
-      cloneEvent.target.className !== "lightbox__slide__img" &&
-      cloneEvent.target.tagName !== "path"
+      cloneEvent.target.className !== "lightbox__right-arrow" &&
+      cloneEvent.target.className !== "lightbox__right-left" &&
+      cloneEvent.target.tagName !== "svg" &&
+      cloneEvent.target.tagName !== "path" &&
+      cloneEvent.target.className !== "lightbox__image"
     ) {
+      window.removeEventListener("keydown", listenKey, true);
       props.onClose();
     }
   };
 
-  window.addEventListener("keydown", listenKey, true);
+  const settings = {
+    dots: false,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    fade: true,
+    initialSlide: props.focus,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    beforeChange: (current, next) => {
+      setCurrentSlide(next);
+    },
+  };
+
+  useEffect(() => {
+    window.addEventListener("keydown", listenKey, true);
+  }, []);
 
   return (
     <div
@@ -79,30 +112,17 @@ const Slider = (props) => {
       style={{ backgroundColor: formatBgColor(props.bgColor) }}
       onClick={clickOutside}
     >
-      <Carousel
-        showArrows={true}
-        showThumbs={false}
-        showIndicators={false}
-        showStatus={false}
-        swipeable={true}
-        useKeyboardArrows={true}
-        infiniteLoop={true}
-        selectedItem={props.focus}
-        renderArrowPrev={(clickHandler) => <PrevArrow clickHandler={clickHandler} />}
-        renderArrowNext={(clickHandler) => <NextArrow clickHandler={clickHandler} />}
-      >
+      <SlickSlider {...settings} ref={slider}>
         {props.images.map((image, index) => (
-          <div key={index} className="lightbox__slide">
-            <div className="lightbox__slide__img">
-              <img
-                src={image.url}
-                className="lightbox__image fade"
-                alt={`Slide ${index + 1}`}
-              />
-            </div>
-          </div>
+          <img
+            src={image.url}
+            key={index}
+            className="lightbox__image"
+            alt={`Slide ${index + 1}`}
+          />
         ))}
-      </Carousel>
+      </SlickSlider>
+      <div className="lightbox__count">{`${currentSlide}/${props.images.length}`}</div>
     </div>
   );
 };
