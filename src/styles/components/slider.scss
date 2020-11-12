@@ -4,8 +4,15 @@
   position: fixed;
   top: 0;
   left: 0;
-  display: flex;
-  align-items: center;
+
+  @include on-tablet {
+    background: black !important;
+  }
+
+  &__image {
+    height: 100%;
+    width: initial !important;
+  }
 
   &__left-arrow {
     position: absolute;
@@ -61,37 +68,29 @@
     }
   }
 
-  &__slide {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
+  &__count {
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transform: translateX(50%);
+    margin-bottom: 80px;
+    font-size: 25px;
+  }
 
-    &__img {
-      max-width: 75%;
+  .slick-slider {
+    height: 50%;
+    transform: translateY(50%);
+
+    .slick-list {
       height: 100%;
-      display: flex;
 
-      @include on-tablet {
-        width: calc(100% - 30px);
-        max-width: calc(100% - 30px);
-      }
-    }
-  }
-
-  .carousel {
-    .slide {
-      background: none;
-
-      img {
+      .slick-track {
         height: 100%;
-        width: auto;
+
+        .slick-slide div {
+          height: 100%;
+        }
       }
     }
-  }
-
-  .carousel-root {
-    width: 100%;
   }
 }
