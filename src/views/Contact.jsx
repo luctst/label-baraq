@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ClemImage from "../assets/images/Clem-3.png";
+import clemSuccess from "../assets/images/CLEM-4.png";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
 import BaseHeader from "../components/BaseHeader";
@@ -153,7 +154,7 @@ const Contact = () => {
       <BaseHeader />
       <main className="contact container">
         <section className="text-center">
-          <img src={ClemImage} alt="Clémentine" className="hide--tablet mb--30" />
+          <img src={state.submitSuccess ? clemSuccess : ClemImage} alt="Clémentine" className="hide--tablet mb--30" />
           <h2 className="h2 text-center mb--30">À distance ou à domicile ?</h2>
           <p className="paragraph" style={{textAlign: 'center'}}>
             Je suis basée sur Paris, mais si ce n’est pas le cas de ton projet, pas de
