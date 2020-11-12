@@ -6,13 +6,17 @@ import { Link } from "react-router-dom";
 import SCheaderModel from "../styles/SC/HeaderModal";
 import burger from "../assets/images/Burger.png";
 import labelBaraqLogo from "../assets/images/logo.png";
+import labelBaraq from "../assets/images/LABEL-BARAQUE.png";
 import cancel from "../assets/images/Croix.png";
 
 const BaseHeader = (props) => {
   const [navOpen, setNavOpen] = React.useState(false);
 
   if (navOpen) {
-    document.body.style = "overflow:hidden";
+    if (!document.body.classList.contains("is_header_mobile")) {
+      document.body.classList.add("is_header_mobile");
+    }
+
     return createPortal(
       <SCheaderModel className="container">
         <header>
@@ -20,7 +24,10 @@ const BaseHeader = (props) => {
             <img src={cancel} alt="close menu" onClick={() => setNavOpen(!navOpen)} />
           </div>
           <div>
-            <img src={labelBaraqLogo} alt="Label baraq logo" />
+            <img
+              src={props.location.pathname === "/" ? labelBaraq : labelBaraqLogo}
+              alt="Label baraq logo"
+            />
           </div>
         </header>
         <main>
@@ -38,7 +45,9 @@ const BaseHeader = (props) => {
     );
   }
 
-  document.body.style = "";
+  if (document.body.classList.contains("is_header_mobile")) {
+    document.body.removeAttribute("class");
+  }
   return (
     <SCheader>
       <nav className="nav--mobile container">
@@ -47,7 +56,10 @@ const BaseHeader = (props) => {
         </div>
         <div>
           <Link to="/">
-            <img src={labelBaraqLogo} alt="Logo label baraq" />
+            <img
+              src={props.location.pathname === "/" ? labelBaraq : labelBaraqLogo}
+              alt="Logo label baraq"
+            />
           </Link>
         </div>
       </nav>
@@ -71,7 +83,10 @@ const BaseHeader = (props) => {
         )}
         <div>
           <Link to="/">
-            <img src={labelBaraqLogo} alt="label baraq logo" />
+            <img
+              src={props.location.pathname === "/" ? labelBaraq : labelBaraqLogo}
+              alt="label baraq logo"
+            />
           </Link>
         </div>
         {props.location.pathname === "/contact" || props.location.pathname === "/cgu" ? (

@@ -118,35 +118,6 @@ const Contact = () => {
       ...state,
       loading: true,
     });
-    // sgMail.setApiKey(process.env.REACT_APP_SENDGRID_API_KEY);
-
-    // try {
-    //   await sgMail.send({
-    //     to: 'lucas.tostee@gmail.com',
-    //     from: 'lucas.tostee@gmail.com',
-    //     subject: state.formError.need.inputValue,
-    //     html: `
-    //     <h1>${state.formError.name.inputValue} aimerais des informations :)</h1>
-    //     <small>Ses informations:</small>
-    //     <ul>
-    //       <li>Mail - <strong>${state.formError.mail.inputValue}</strong></li>
-    //       <li>Description projet - ${state.formError.description.inputValue}</li>
-    //     </ul>
-    //     `
-    //   });
-
-    //   setState({
-    //     ...state,
-    //     submitSuccess: true,
-    //     loading: false
-    //   })
-    // } catch (error) {
-    //   setState({
-    //     ...state,
-    //     errorApi: true,
-    //     loading: false
-    //   })
-    // }
   }
 
   return (
@@ -154,13 +125,19 @@ const Contact = () => {
       <BaseHeader />
       <main className="contact container">
         <section className="text-center">
-          <img src={state.submitSuccess ? clemSuccess : ClemImage} alt="Clémentine" className="hide--tablet mb--30" />
-          <h2 className="h2 text-center mb--30">À distance ou à domicile ?</h2>
-          <p className="paragraph" style={{textAlign: 'center'}}>
-            Je suis basée sur Paris, mais si ce n’est pas le cas de ton projet, pas de
-            panique ! La distance n’est pas un frein à mon activité, tant que les trains et
-            les visioconférences fonctionnent !
-          </p>
+          <div>
+            <h2 className="h2 text-center mb--30">À distance ou à domicile ?</h2>
+            <p className="paragraph" style={{ textAlign: "center" }}>
+              Je suis basée sur Paris, mais si ce n’est pas le cas de ton projet, pas de
+              panique ! La distance n’est pas un frein à mon activité, tant que les trains
+              et les visioconférences fonctionnent !
+            </p>
+          </div>
+          <img
+            src={state.submitSuccess ? clemSuccess : ClemImage}
+            alt="Clémentine"
+            className="hide--tablet mb--30"
+          />
         </section>
         {(function () {
           if (state.loading) return <Loader />;

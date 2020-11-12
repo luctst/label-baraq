@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export default styled.header`
-  height: 12vh;
+  height: 10vh;
 
   nav {
     align-items: center;
