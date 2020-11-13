@@ -28,7 +28,7 @@ export default styled.header`
 
       div:last-child {
         margin: 0 auto;
-        width: 22%;
+        width: 26%;
       }
     }
   }
@@ -76,7 +76,7 @@ export default styled.header`
       justify-content: space-between;
 
       div:first-child {
-        width: 2%;
+        width: 3%;
         transform: rotate(90deg);
       }
 
@@ -121,7 +121,7 @@ export default styled.header`
 
       div {
         margin-top: 1%;
-        width: 11%;
+        width: 16%;
 
         img {
           object-fit: cover;
@@ -134,8 +134,12 @@ export default styled.header`
 
   @media (min-width: 920px) {
     .nav--desktop {
+      div:first-child {
+        width: 2%;
+      }
+
       div {
-        width: 10%;
+        width: 14%;
       }
     }
   }

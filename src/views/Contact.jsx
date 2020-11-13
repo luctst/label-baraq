@@ -126,7 +126,7 @@ const Contact = () => {
       <main className="contact container">
         <section className="text-center">
           <div>
-            <h2 className="h2 text-center mb--30">À distance ou à domicile ?</h2>
+            <h2 className="text-center mb--30">À distance ou à domicile ?</h2>
             <p className="paragraph" style={{ textAlign: "center" }}>
               Je suis basée sur Paris, mais si ce n’est pas le cas de ton projet, pas de
               panique ! La distance n’est pas un frein à mon activité, tant que les trains

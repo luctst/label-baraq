@@ -14,12 +14,35 @@
   }
 
   @include on-mobile {
-    .contact {
-      section {
+    section {
+      margin-top: 40px;
+
+      div {
+        h2 {
+          font-size: 16px;
+          margin-bottom: 16px;
+        }
+
+        p {
+          font-size: 10px;
+          line-height: 16px;
+        }
+      }
+    }
+
+    section:last-child {
+      margin-top: 40px;
+
+      form {
         div {
-          h2 {
+          label {
             font-size: 16px;
+            margin-bottom: 8px;
           }
+        }
+
+        button {
+          font-size: 16px;
         }
       }
     }
@@ -27,6 +50,46 @@
 
   @include on-tablet {
     flex-direction: column;
+
+    section {
+      margin: 50px 0;
+
+      div {
+        h2 {
+          font-size: 24px;
+          margin-bottom: 22px;
+        }
+
+        p {
+          font-size: 18px;
+        }
+      }
+    }
+
+    section:last-child {
+      margin: 0;
+
+      div {
+        label {
+          font-size: 20px;
+          margin-bottom: 16px;
+        }
+      }
+
+      button {
+        font-size: 17px;
+      }
+    }
+  }
+
+  @include on-desktop {
+    section:first-child {
+      display: flex;
+
+      img {
+        
+      }
+    }
   }
 
   section {
@@ -40,10 +103,6 @@
   section + section {
     @include on-desktop {
       margin-left: 70px;
-    }
-
-    @include on-tablet {
-      margin-top: 60px;
     }
   }
 
