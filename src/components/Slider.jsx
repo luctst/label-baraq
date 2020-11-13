@@ -57,7 +57,7 @@ const NextArrow = ({ onClick }) => {
 
 const Slider = (props) => {
   const slider = useRef(null);
-  const [currentSlide, setCurrentSlide] = useState(props.focus);
+  const [currentSlide, setCurrentSlide] = useState(props.focus + 1);
 
   const listenKey = (event) => {
     switch (event.key) {
@@ -98,7 +98,7 @@ const Slider = (props) => {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     beforeChange: (current, next) => {
-      setCurrentSlide(next);
+      setCurrentSlide(next + 1);
     },
   };
 
