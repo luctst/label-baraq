@@ -10,28 +10,28 @@ const Home = () => {
   const scrollToPresentation = () => {
     document.querySelector(".presentation").scrollIntoView({
       behavior: "smooth",
-      block: 'center',
-      inline: 'nearest'
+      block: "center",
+      inline: "nearest",
     });
   };
 
   React.useEffect(function () {
-    window.addEventListener('scroll', function t() {
+    window.addEventListener("scroll", function t() {
       if (pres && pres.current) {
         if (window.scrollY >= window.innerHeight - pres.current.offsetTop) {
           if (pres.current.style) {
-            pres.current.removeAttribute('style');
+            pres.current.removeAttribute("style");
           }
-  
+
           pres.current.childNodes.forEach(function (item, index) {
-            if (item.classList.contains('slide-in-bottom')) return;
-            
+            if (item.classList.contains("slide-in-bottom")) return;
+
             if (index === 0) {
-              return item.classList.add('slide-in-bottom');
-            } 
-  
-            item.classList.add('slide-in-bottom', 'text-focus-in');
-            window.removeEventListener('scroll', t);
+              return item.classList.add("slide-in-bottom");
+            }
+
+            item.classList.add("slide-in-bottom", "text-focus-in");
+            window.removeEventListener("scroll", t);
           });
         }
       }
@@ -64,7 +64,7 @@ const Home = () => {
             </svg>
           </span>
         </section>
-        <section className="presentation" ref={pres} style={{visibility: 'hidden'}}>
+        <section className="presentation" ref={pres} style={{ visibility: "hidden" }}>
           <div className="presentation__img">
             <span>#A11842</span>
             <img src={ClemImage} alt="Clem" />
@@ -87,16 +87,24 @@ const Home = () => {
               </li>
             </ul>
             <p className="paragraph">
-              La décoration est pour moi une histoire de famille. En effet, ma mère était architecte d’intérieur, j’ai donc réalisé mon premier projet à l’âge de 9 ans : rénovation complète de ma chambre,  de la peinture au choix du mobilier. C’était plutôt réussi !
+              La décoration est pour moi une histoire de famille. En effet, ma mère était
+              architecte d’intérieur, j’ai donc réalisé mon premier projet à l’âge de 9
+              ans : rénovation complète de ma chambre,  de la peinture au choix du
+              mobilier. C’était plutôt réussi !
             </p>
             <p className="paragraph">
-              Après un Bachelor en commerce international et de nombreux voyages, j’ai décidé de me lancer dans la décoration d’intérieur afin d’allier entreprenariat et créativité.
+              Après un Bachelor en commerce international et de nombreux voyages, j’ai
+              décidé de me lancer dans la décoration d’intérieur afin d’allier
+              entreprenariat et créativité.
             </p>
             <p className="paragraph">
-              J’aime tout particulièrement l’idée de faire équipe avec mes clients, de les intégrer un maximum au projet et d’avoir avec eux une communication fluide. A travers mon travail, je cherche à les initier à la couleur qui est un élément indispensable au bien-être x dans un intérieur.
+              J’aime tout particulièrement l’idée de faire équipe avec mes clients, de les
+              intégrer un maximum au projet et d’avoir avec eux une communication fluide.
+              A travers mon travail, je cherche à les initier à la couleur qui est un
+              élément indispensable au bien-être x dans un intérieur.
             </p>
             <p className="paragraph">
-                N’hésitez pas à me contacter pour définir ensemble votre projet !
+              N’hésitez pas à me contacter pour définir ensemble votre projet !
             </p>
             <div className="presentation__content__button text-center">
               <Link to="/projets" className="button">

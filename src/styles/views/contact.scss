@@ -13,6 +13,18 @@
     display: block;
   }
 
+  @include on-mobile {
+    .contact {
+      section {
+        div {
+          h2 {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+
   @include on-tablet {
     flex-direction: column;
   }
@@ -36,7 +48,7 @@
   }
 
   button {
-    font-family: 'Viga', sans-serif;
+    font-family: "Viga", sans-serif;
     margin-left: auto;
     display: block;
   }
@@ -55,7 +67,7 @@
       border-radius: 8px;
       padding: 16px;
       background-color: $color-beige;
-      font-family: 'Roboto', sans-serif;
+      font-family: "Roboto", sans-serif;
       font-size: 16px;
     }
 
@@ -81,7 +93,7 @@
       border-radius: 8px;
       padding: 16px;
       background-color: $color-beige;
-      font-family: 'Roboto', sans-serif;
+      font-family: "Roboto", sans-serif;
       font-size: 16px;
     }
 
