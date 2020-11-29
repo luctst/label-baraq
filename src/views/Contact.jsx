@@ -50,6 +50,17 @@ const Contact = () => {
 
     const newState = { ...state };
 
+    const allowChange = Object.keys(newState.formError).every(function (key) {
+      if (key === e.target.name || key === "need") return true;
+      if (newState.formError[key].accessToChange && !newState.formError.error)
+        return true;
+      return false;
+    });
+
+    if (allowChange) {
+      newState.formError[e.target.name].accessToChange = true;
+    }
+
     if (e.type === "change") {
       if (!newState.formError[e.target.name].accessToChange) return;
     }
@@ -126,8 +137,8 @@ const Contact = () => {
       <main className="contact container">
         <section className="text-center">
           <div>
-            <h2 className="text-center mb--30">À distance ou à domicile ?</h2>
-            <p className="paragraph" style={{ textAlign: "center" }}>
+            <h2 className="mb--30">À distance ou à domicile ?</h2>
+            <p className="paragraph">
               Je suis basée sur Paris, mais si ce n’est pas le cas de ton projet, pas de
               panique ! La distance n’est pas un frein à mon activité, tant que les trains
               et les visioconférences fonctionnent !
