@@ -91,14 +91,23 @@ export default styled.header`
           text-decoration: none;
           text-transform: uppercase;
 
+          &:hover {
+            span {
+              width: 100%;
+              opacity: 1;
+            }
+          }
+
           span {
             display: block;
             position: absolute;
             left: 0;
             bottom: 0;
-            width: 100%;
+            opacity: 0;
+            width: 0%;
             transform: translateY(8px);
             border-bottom: solid 1px black;
+            transition: all 0.3s;
 
             ::before {
               content: "";
