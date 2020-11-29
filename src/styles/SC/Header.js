@@ -4,7 +4,6 @@ export default styled.header`
   height: 10vh;
 
   nav {
-    align-items: center;
     height: inherit;
   }
 
@@ -71,13 +70,14 @@ export default styled.header`
     }
 
     .nav--desktop {
-      align-items: center;
       display: flex;
       justify-content: space-between;
+      padding-top: 1%;
       padding-left: 55px;
       padding-right: 55px;
 
       div:first-child {
+        align-self: flex-start;
         width: 3%;
         transform: rotate(90deg);
       }
@@ -131,7 +131,6 @@ export default styled.header`
       }
 
       div {
-        margin-top: 1%;
         width: 16%;
 
         img {
@@ -146,7 +145,7 @@ export default styled.header`
   @media (min-width: 920px) {
     .nav--desktop {
       div:first-child {
-        width: 2%;
+        width: 1.3%;
       }
 
       div {
@@ -166,7 +165,7 @@ export default styled.header`
       }
 
       div {
-        width: 8%;
+        width: 7%;
       }
     }
   }
