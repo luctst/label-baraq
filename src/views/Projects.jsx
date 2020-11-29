@@ -43,7 +43,9 @@ const Projects = () => {
           className="projects-list__project"
           key={project.id}
         >
-          <img src={project.pictures[0].url} alt={project.projectName} />
+          <div className="projects-list__project__img">
+            <img src={project.pictures[0].url} alt={project.projectName} />
+          </div>
           <h2 className="h3 graduated">
             {project.projectName}
             <span className="graduation"></span>
