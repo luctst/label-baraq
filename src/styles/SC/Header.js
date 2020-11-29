@@ -74,6 +74,8 @@ export default styled.header`
       align-items: center;
       display: flex;
       justify-content: space-between;
+      padding-left: 55px;
+      padding-right: 55px;
 
       div:first-child {
         width: 3%;
