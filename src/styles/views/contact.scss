@@ -86,9 +86,28 @@
     section:first-child {
       display: flex;
 
-      img {
-        
+      div {
+        padding: 0 6%;
+        padding-top: 0px;
+        text-align: left;
+        padding-top: 16%;
+
+        h2 {
+          font-size: 25px;
+        }
+
+        p {
+          font-size: 22px;
+          line-height: 40px;
+          text-align: left;
+        }
       }
+    }
+
+    img {
+      object-fit: contain;
+      height: auto;
+      width: 100%;
     }
   }
 
