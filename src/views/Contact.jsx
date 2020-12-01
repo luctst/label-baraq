@@ -5,6 +5,7 @@ import clemSuccess from "../assets/images/CLEM-4.png";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
 import BaseHeader from "../components/BaseHeader";
+import { Api } from "../services/Api";
 
 const Contact = () => {
   const [state, setState] = useState({
@@ -129,6 +130,33 @@ const Contact = () => {
       ...state,
       loading: true,
     });
+
+    const { formError: form } = state;
+    const error = Object.keys(form).find((field) => form[field].error);
+
+    if (!error) {
+      const data = Object.keys(form).reduce((acc, field) => {
+        acc[field] = form[field].inputValue;
+        return acc;
+      }, {});
+      Api.post("/emails", data)
+        .then(() => {
+          setState({
+            ...state,
+            loading: false,
+            submitSuccess: true,
+            errorApi: false,
+          });
+        })
+        .catch(() => {
+          setState({
+            ...state,
+            loading: false,
+            submitSuccess: false,
+            errorApi: true,
+          });
+        });
+    }
   }
 
   return (
@@ -221,7 +249,7 @@ const Contact = () => {
                     <option value="Projet complet : avant-projet + suivi de chantier">
                       Projet complet : avant-projet + suivi de chantier
                     </option>
-                    <option value="other">Autre</option>
+                    <option value="Autre">Autre</option>
                   </select>
                 </div>
                 <div className="input">
