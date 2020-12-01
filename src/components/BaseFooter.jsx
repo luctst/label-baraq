@@ -13,7 +13,7 @@ const BaseFooter = (props) => {
           <div className="footer__box hide--tablet">
             <p>#A11842</p>
           </div>
-          <div className="footer__box">
+          <div className="footer__box footer__box--link">
             <Link to="/contact">Contact</Link>
             <Link to="/cgu">CGU</Link>
           </div>
@@ -22,6 +22,7 @@ const BaseFooter = (props) => {
               href="https://www.facebook.com/labelbaraque"
               target="_blank"
               rel="noopener noreferrer"
+              className="icon-rs"
             >
               <svg
                 fill="#FFFFFF"
@@ -37,6 +38,7 @@ const BaseFooter = (props) => {
               href="https://www.instagram.com/labelbaraque"
               target="_blank"
               rel="noopener noreferrer"
+              className="icon-rs"
             >
               <svg
                 fill="#FFFFFF"
@@ -52,6 +54,7 @@ const BaseFooter = (props) => {
               href="https://www.pinterest.fr/labelbaraque"
               target="_blank"
               rel="noopener noreferrer"
+              className="icon-rs"
             >
               <svg
                 fill="#FFFFFF"

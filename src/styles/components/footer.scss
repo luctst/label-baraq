@@ -23,6 +23,18 @@
     a + a {
       padding-left: 40px;
     }
+
+    .icon-rs {
+      height: 25px;
+      padding-top: 1px;
+    }
+
+    &--link {
+      a + a {
+        padding-left: 0;
+        margin-left: 100px;
+      }
+    }
   }
 
   @include on-tablet {
@@ -32,6 +44,13 @@
 
     &__box:first-of-type {
       order: 3;
+    }
+
+    &__box--link {
+      a + a {
+        padding-left: 40px;
+        margin-left: 0;
+      }
     }
   }
 }
