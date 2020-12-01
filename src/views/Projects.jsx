@@ -48,7 +48,7 @@ const Projects = () => {
           </div>
           <h2 className="h3 graduated">
             {project.projectName}
-            <span className="graduation"></span>
+            <span className="graduation graduation--animated"></span>
           </h2>
         </Link>
       );
