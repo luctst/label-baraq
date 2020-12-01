@@ -14,6 +14,7 @@ export default styled.header`
 
     .nav--mobile {
       display: flex;
+      padding-top: 1%;
 
       div {
         width: 5%;
@@ -165,7 +166,7 @@ export default styled.header`
       }
 
       div {
-        width: 7%;
+        width: 8.5%;
       }
     }
   }

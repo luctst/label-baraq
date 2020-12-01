@@ -53,4 +53,17 @@
       }
     }
   }
+
+  @include on-desktop {
+    &__box {
+      &--link {
+        width: 23%;
+        padding: 8px 60px;
+
+        a:last-child {
+          margin-left: auto;
+        }
+      }
+    }
+  }
 }
