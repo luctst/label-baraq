@@ -162,8 +162,8 @@ const Contact = () => {
   return (
     <>
       <BaseHeader />
-      <main className="contact container">
-        <section className="text-center">
+      <main className="contact">
+        <section className="text-center section--left">
           <div>
             <h2 className="mb--30">À distance ou à domicile ?</h2>
             <p className="paragraph">
@@ -179,7 +179,12 @@ const Contact = () => {
           />
         </section>
         {(function () {
-          if (state.loading) return <Loader />;
+          if (state.loading)
+            return (
+              <section className="contact__success text-center">
+                <Loader />
+              </section>
+            );
 
           if (state.submitSuccess) {
             return (
