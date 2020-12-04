@@ -109,6 +109,16 @@
       height: auto;
       width: 100%;
     }
+
+    section:last-child {
+      form {
+        div {
+          label {
+            font-size: 20px;
+          }
+        }
+      }
+    }
   }
 
   section {
@@ -137,7 +147,7 @@
     margin-bottom: 33px;
 
     label {
-      margin-bottom: 18px;
+      margin-bottom: 10px;
     }
 
     input {
@@ -179,13 +189,13 @@
     textarea,
     select {
       outline: none;
+      color: #A5A398;
     }
 
     input:focus,
     textarea:focus,
     select:focus {
       border: solid 2px #000;
-      color: #000;
     }
   }
 }
