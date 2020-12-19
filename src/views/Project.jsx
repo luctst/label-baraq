@@ -63,7 +63,7 @@ const Project = (props) => {
               <section className="project__grid">
                 <div className="project__grid__first pointer">
                   <img
-                    src={project.pictures[0].url}
+                    src={project.cover.url}
                     alt="background"
                     onClick={() => {
                       setShowSlider(true);
